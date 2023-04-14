@@ -8,7 +8,7 @@ interface ITypographyProps {
   uppercase?: boolean;
   color?: TypographyColorTypes;
   weight?: "bold" | "medium" | number;
-  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "6xl";
   lineHight?: number;
 }
 

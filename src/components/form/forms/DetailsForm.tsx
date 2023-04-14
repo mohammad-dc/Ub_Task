@@ -5,6 +5,8 @@ import { Typography } from "../../Typography";
 import { Textbox } from "../Inputs/Textbox";
 import { TextareaBox } from "../Inputs/Textarea";
 import { Button } from "../Buttons/Button";
+import { useNavigate } from "react-router-dom";
+import { dataForm } from "../../../data/data";
 
 export const DetailsForm = () => {
   const initialValues = {
@@ -17,12 +19,16 @@ export const DetailsForm = () => {
     country: "",
     message: "",
   };
+
+  const navigate = useNavigate();
+
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(true);
-        console.log(values);
+        dataForm.push(values);
+        navigate("/thanks");
         setSubmitting(false);
       }}
     >
