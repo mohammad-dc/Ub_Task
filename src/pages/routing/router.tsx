@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { RouteList } from "./routeList";
-import { HomePage } from "../Home";
+import { useEffect, useState } from "react";
+import { PageTransition } from "../../components/PageTransition";
 
 export default function PageRoutes() {
   return (
@@ -10,12 +11,37 @@ export default function PageRoutes() {
           return (
             <Route
               key={`p-${key}`}
-              element={<props.element />}
+              element={
+                <NavTransition>
+                  <props.element />
+                </NavTransition>
+              }
               path={props.path}
             />
           );
         })}
       </Routes>
     </Router>
+  );
+}
+
+function NavTransition({ children }: { children: React.ReactNode }) {
+  const [showPage, setShowPage] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setShowPage(true);
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, []);
+
+  return (
+    <>
+      {!showPage && <PageTransition />}
+      <div className={showPage ? "block" : "none"}>{children}</div>
+    </>
   );
 }
