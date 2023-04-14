@@ -9,6 +9,7 @@ interface ITypographyProps {
   color?: TypographyColorTypes;
   weight?: "bold" | "medium" | number;
   size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
+  lineHight?: number;
 }
 
 export const Typography = ({
@@ -17,6 +18,7 @@ export const Typography = ({
   size = "md",
   uppercase = false,
   weight = "medium",
+  lineHight,
 }: ITypographyProps) => {
   return (
     <Text
@@ -24,6 +26,7 @@ export const Typography = ({
       fontSize={size}
       fontWeight={weight}
       textTransform={uppercase ? "uppercase" : "none"}
+      lineHeight={lineHight || "none"}
     >
       {children}
     </Text>

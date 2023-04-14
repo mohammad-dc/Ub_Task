@@ -14,7 +14,9 @@ export const LinksNavbar = () => {
             {el.label}
           </Typography>
         ))}
-        <Button variant="secondary">Search</Button>
+        <Button onClick={() => null} variant="secondary">
+          Search
+        </Button>
       </HStack>
     </Box>
   );
