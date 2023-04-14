@@ -4,11 +4,12 @@ const ButtonTheme: ComponentStyleConfig = {
   baseStyle: {
     px: 10,
     py: 5,
-    w: "300px",
     borderRadius: "11px",
   },
   variants: {
     primary: {
+      px: 10,
+      py: 5,
       bg: "danger",
       color: "white",
       _hover: {
@@ -17,6 +18,7 @@ const ButtonTheme: ComponentStyleConfig = {
     },
     secondary: {
       bg: "white",
+      w: "300px",
       color: "black",
       textTransform: "uppercase",
       borderRadius: "8px",
